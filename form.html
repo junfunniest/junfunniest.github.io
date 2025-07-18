@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body style="background-color: #edede9">
+    <div class="container">
+        <h1 class="display-5 fw-bold text-body-emphasis text-center pt-0 my-5">Checkout Form</h1>
+        <form class="row g-3">
+            <h3 class="mb-3">Booking information</h3>
+            <div class="col-md-12 mb-0 mt-0">
+                <label for="inputFirstName" class="form-label">Name</label>
+            </div>
+            <div class="col-md-6 mt-0">
+                <input type="text" class="form-control" id="inputFirstName" placeholder="First name">
+            </div>
+            <div class="col-md-6 mt-0">
+                <input type="text" class="form-control" id="inputLastName" placeholder="Last name">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail4">
+            </div>
+            <div class="col-md-6">
+                <label for="inputMobile4" class="form-label">Mobile number</label>
+                <input type="text" class="form-control" id="inputMobile4">
+            </div>
+            <div class="col-12">
+                <label for="inputPlace" class="form-label">Dining spot</label>
+                <input type="text" class="form-control" id="inputPlace" disabled>
+            </div>
+            <div class="col-md-6">
+                <label for="inputTimeslot" class="form-label">Timeslot</label>
+                <select id="inputTimeslot" class="form-select">
+                    <option selected disabled>Choose a time</option>
+                    <option>11pm - 1pm</option>
+                    <option>1pm - 3pm</option>
+                    <option>6pm - 8pm</option>
+                    <option>8pm - 10pm</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="inputDate" class="form-label">Date</label>
+                <input type="date" class="form-control" id="inputDate">
+            </div>
+            <div class="col-md-2">
+                <label for="inputSize" class="form-label">Pax</label>
+                <input type="text" class="form-control" id="inputSize" disabled>
+            </div>
+            <hr class="my-5 mb-4">
+            <div class="row g-3" style="margin:0; padding:0;">
+                <div class="col-md-8 mt-0">
+                    <h3 class="mb-3">Payment</h3>
+                    <div class="row g-4">
+                        <div class="col-md-11">
+                            <label for="inputCardName" class="form-label">Name on card</label>
+                            <input type="text" class="form-control" id="inputCardName">
+                            <small class="text-body-secondary">Full name as displayed on card</small>
+                        </div>
+                        <div class="col-md-11">
+                            <label for="inputCardNumber" class="form-label">Credit card number</label>
+                            <input type="text" class="form-control" id="inputCardNumber">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="inputExpiration" class="form-label">Expiration</label>
+                            <input type="text" class="form-control" id="inputExpiration">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="inputCVV" class="form-label">CVV</label>
+                            <input type="text" class="form-control" id="inputCVV">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-0">
+                    <h4 class="text-primary mt-4 mb-3">Deposit summary</h4>
+                    <ul class="list-group mb-4">
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0" id="calculateSpot">Spot</h6> <small class="text-body-secondary">*Each
+                                    area has a different base price.</small>
+                            </div> <span class="text-body-secondary" id="calculatePrice">$</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0" id="calculatePax">Pax</h6> <small class="text-body-secondary">*Extra $5
+                                    if group size is over half the area's limit.</small>
+                            </div> <span class="text-body-secondary" id="calculatePrice1">+$</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0" id="calculateTime">Time</h6> <small class="text-body-secondary">*Busy
+                                    hours add a 25% surcharge.</small>
+                            </div> <span class="text-body-secondary" id="calculatePrice2">+$</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0" id="calculateDay">Day</h6> <small class="text-body-secondary">*Weekend
+                                    bookings have a 50% surcharge.</small>
+                            </div> <span class="text-body-secondary" id="calculatePrice3">+$</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between"> <span>Total (SGD)</span>
+                            <strong id="calculateTotal">$</strong>
+                        </li>
+                    </ul>
+                    <div class="card p-0">
+                        <button type="button" class="btn btn-secondary" id="calculator">Calculate</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5 mb-4">
+            <div class="col-12 mb-5">
+                <button type="button" class="btn btn-primary btn-lg w-100" id="checkout" data-bs-toggle="modal"
+                    data-bs-target="#lastModal">Submit</button>
+                <div class="modal fade" tabindex="-1" id="lastModal" data-bs-backdrop="static" data-bs-keyboard="false">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">You're All Set!</h5>
+                            </div>
+                            <div class="modal-body">
+                                <p style="font-size: 18px;">Thanks for booking with us! See you soon at JapBite.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="index.html" class="btn btn-secondary">Close</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="formscript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
